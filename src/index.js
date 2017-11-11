@@ -105,11 +105,13 @@ class DiceRoller extends Component {
             <div id="roller">
                 <button
                     id="roll"
-                    onClick={() => this.refs.rollerModal.show()}>
+                    onClick={() => {
+                        this._computeDiceRoll();
+                        this.refs.rollerModal.show();
+                    }}>
                     Roll
                 </button>
                 <SkyLight
-                    beforeOpen={this._computeDiceRoll()}
                     ref="rollerModal">
                     <div>Result: {this.state.result}</div>
                     <div>History: {this.state.history.toString()}</div>
